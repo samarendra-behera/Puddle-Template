@@ -2,7 +2,26 @@ from django import forms
 
 from .models import Item
 
-class NewItemForm(forms.Form):
+INPUT_CLASS = 'w-full py-4 px-6 rounded-xl border'
+class NewItemForm(forms.ModelForm):
     class Meta:
-        modle=Item
-        fields = ('name', 'price', 'category', 'description', 'image')
+        model=Item
+        fields = ('category', 'name', 'description', 'price', 'image')
+
+        widgets = {
+            'category': forms.Select(attrs={
+                'class': INPUT_CLASS
+            }),
+            'name': forms.TextInput(attrs={
+                'class': INPUT_CLASS
+            }),
+            'description': forms.Textarea(attrs={
+                'class': INPUT_CLASS
+            }),
+            'price': forms.NumberInput(attrs={
+                'class': INPUT_CLASS
+            }),
+            'image': forms.FileInput(attrs={
+                'class': INPUT_CLASS
+            })
+        }
