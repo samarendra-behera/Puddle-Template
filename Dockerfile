@@ -11,6 +11,7 @@ RUN pip install --upgrade pip && \
 
 COPY . /app
 
+
 EXPOSE 5500
 
-CMD [ "python" , "manage.py", "runserver", "0.0.0.0:5500" ]
+ENTRYPOINT ["./entrypoint.sh"]

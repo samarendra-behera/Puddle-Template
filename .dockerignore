@@ -33,7 +33,7 @@ npm-debug.log
 yarn-error.log
 
 # Ignore media files
-media/
+# media/
 
 # Ignore static files
 staticfiles/
