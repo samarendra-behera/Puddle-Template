@@ -13,5 +13,3 @@ COPY . /app
 
 
 EXPOSE 5500
-
-ENTRYPOINT ["./entrypoint.sh"]
