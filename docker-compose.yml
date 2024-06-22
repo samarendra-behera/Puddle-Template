@@ -15,15 +15,17 @@ services:
     restart: always
     depends_on:
       - db
-    develop:
-      watch:
-        - path: ./requirements.txt
-          action: rebuild
-        - path: ./*/migrations/*
-          action: rebuild
-        - path: ./
-          target: /app
-          action: sync
+    volumes:
+      - ./:/app
+    # develop:
+    #   watch:
+    #     - path: ./requirements.txt
+    #       action: rebuild
+    #     - path: ./*/migrations/*
+    #       action: rebuild
+    #     - path: ./
+    #       target: /app
+    #       action: sync
   
   db:
     image: postgres
